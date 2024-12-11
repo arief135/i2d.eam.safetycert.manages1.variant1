@@ -87,10 +87,22 @@ sap.ui.define(
                 //     ValidationScenarioID: "00002",
                 //     IsActiveEntity: false
                 //    },
-               
+
 
             },
 
+            async navigateTo(semanticObject, action, params) {
+                const globalContainer = sap.ushell.Container
+
+                const navigator = await globalContainer.getServiceAsync("CrossApplicationNavigation")
+                navigator.toExternal({
+                    target: {
+                        semanticObject: semanticObject,
+                        action: action
+                    },
+                    params
+                })
+            },
 
             // this section allows to extend lifecycle hooks or override public methods of the base controller
             override: {
@@ -109,6 +121,23 @@ sap.ui.define(
                         originalSuperController.displayCreateSafetyCertificateDialog.apply(superController)
                         that.setParameterValues.apply(superController)
                     }
+
+
+                    //Isolation Item
+                    this.sAppId = oEvent.getParameter("id");
+                    const isToolbar = sap.ui.getCore().byId(this.sAppId + "--IsolationItems::Table::Toolbar");
+
+                    if (isToolbar) {
+                        const createButton = new sap.m.Button({
+                            text: 'Create',
+                            press: (e) => {
+                                this.navigateTo('ZPMCustGUI', 'manage')
+                            },
+                            enabled: "{= ${ui>/editable} === true}"
+                        })
+                        isToolbar.insertContent(createButton, 1)
+                    }
+
                 },
                 /**
                  * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
