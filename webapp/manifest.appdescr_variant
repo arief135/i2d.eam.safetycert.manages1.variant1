@@ -1,0 +1,60 @@
+{
+  "fileName": "manifest",
+  "layer": "CUSTOMER_BASE",
+  "fileType": "appdescr_variant",
+  "reference": "i2d.eam.safetycert.manages1",
+  "id": "customer.i2d.eam.safetycert.manages1.variant1",
+  "namespace": "apps/i2d.eam.safetycert.manages1/appVariants/customer.i2d.eam.safetycert.manages1.variant1/",
+  "version": "0.1.0",
+  "content": [
+    {
+    "changeType": "appdescr_ui5_addNewModelEnhanceWith",
+    "content": {
+        "modelId": "i18n"
+    },
+    "texts": {
+        "i18n": "i18n/i18n.properties"
+    }
+},
+    {
+    "changeType": "appdescr_ui5_addNewModelEnhanceWith",
+    "content": {
+        "modelId": "@i18n"
+    },
+    "texts": {
+        "i18n": "i18n/i18n.properties"
+    }
+},
+    {
+    "changeType": "appdescr_ui5_addNewModelEnhanceWith",
+    "content": {
+        "modelId": "i18n|sap.suite.ui.generic.template.ListReport|SafetyCertificate"
+    },
+    "texts": {
+        "i18n": "i18n/ListReport/SafetyCertificate/i18n.properties"
+    }
+},
+    {
+    "changeType": "appdescr_ui5_addNewModelEnhanceWith",
+    "content": {
+        "modelId": "i18n|sap.suite.ui.generic.template.ObjectPage|SafetyCertificate"
+    },
+    "texts": {
+        "i18n": "i18n/ObjectPage/SafetyCertificate/i18n.properties"
+    }
+},
+    {
+    "changeType": "appdescr_ui5_setMinUI5Version",
+    "content": {
+        "minUI5Version": "1.120.19"
+    }
+},
+    {
+      "changeType": "appdescr_app_setTitle",
+      "content": {},
+      "texts": {
+        "i18n": "i18n/i18n.properties"
+      }
+    }
+  ]
+}
