@@ -17,6 +17,8 @@
     "scripts": {
         "build": "ui5 build --exclude-task generateFlexChangesBundle generateComponentPreload minify --clean-dest",
         "start": "fiori run --open /test/flp.html#app-preview",
-        "start-editor": "fiori run --open /test/adaptation-editor.html"
+        "start-editor": "fiori run --open /test/adaptation-editor.html",
+        "start-editor-local": "fiori run --config ./ui5-local.yaml --open /test/adaptation-editor.html",
+        "start-local": "fiori run --config ./ui5-local.yaml --open /test/flp.html#app-preview"
     }
 }
