@@ -3,21 +3,21 @@
   "reference": "customer.i2d.eam.safetycert.manages1.variant1",
   "namespace": "apps/customer.i2d.eam.safetycert.manages1.variant1/changes/",
   "projectId": "customer.i2d.eam.safetycert.manages1.variant1",
-  "moduleName": "customer/i2d/eam/safetycert/manages1/variant1/changes/coding/SafetyCertificateListExt",
+  "moduleName": "customer/i2d/eam/safetycert/manages1/variant1/changes/coding/SafetyCertificateObjectPageExt",
   "support": {
     "generator": "@sap-ux/control-property-editor",
-    "sapui5Version": "1.120.19"
+    "sapui5Version": "0.1.0"
   },
   "originalLanguage": "EN",
   "layer": "CUSTOMER_BASE",
   "fileType": "change",
-  "fileName": "id_1733901980429_251_codeExt",
+  "fileName": "id_1733903990052_225_codeExt",
   "content": {
-    "codeRef": "coding/SafetyCertificateListExt.js"
+    "codeRef": "coding/SafetyCertificateObjectPageExt.js"
   },
   "texts": {},
   "selector": {
-    "controllerName": "sap.suite.ui.generic.template.ListReport.view.ListReport"
+    "controllerName": "sap.suite.ui.generic.template.ObjectPage.view.Details"
   },
-  "creation": "2024-12-11T07:26:22.324Z"
+  "creation": "2024-12-11T07:59:50.053Z"
 }
