@@ -51,9 +51,3 @@ server:
           - client: '110'
             url: https://vhpuadwdwd01.sap.essa.id:44380
             path: /sap
-        ui5:
-          path:
-            - /resources
-            - /test-resources
-          url: https://ui5.sap.com
-          version: 1.120.19
