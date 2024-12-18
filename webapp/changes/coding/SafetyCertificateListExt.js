@@ -46,7 +46,7 @@ sap.ui.define(
 
             async navigateTo(semanticObject, action, params) {
                 const globalContainer = sap.ushell.Container
-        
+
                 const navigator = await globalContainer.getServiceAsync("CrossApplicationNavigation")
                 navigator.toExternal({
                     target: {
@@ -56,7 +56,7 @@ sap.ui.define(
                     params
                 })
             },
-            
+
             override: {
                 /**
                  * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -64,12 +64,12 @@ sap.ui.define(
                  * @memberOf {{controllerExtPath}}
                  */
                 onInit: function (oEvent) {
-                    this.sAppId = oEvent.getParameter("id"); 
+                    this.sAppId = oEvent.getParameter("id");
                     const wpToolbar = sap.ui.getCore().byId(this.sAppId + "--template::ListReport::TableToolbar");
                     const uploadButton = new sap.m.Button({
                         text: 'Upload',
                         press: (e) => {
-                            this.navigateTo('ZPMCustGUI','ZPME012')
+                            this.navigateTo('ZPMCustGUI', 'ZPME012', { 'sap-ushell-navmode': 'explace' })
                         }
                     })
                     wpToolbar.insertContent(uploadButton, 1)

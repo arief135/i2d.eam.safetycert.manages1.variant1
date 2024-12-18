@@ -131,11 +131,31 @@ sap.ui.define(
                         const createButton = new sap.m.Button({
                             text: 'Create',
                             press: (e) => {
-                                this.navigateTo('ZPMCustGUI', 'manage')
+                                this.navigateTo(
+                                    'ZPMCustGUI',
+                                    'manage',
+                                    {
+                                        'preferredMode': 'create',
+                                        'sap-ushell-navmode': 'explace'
+                                    })
                             },
                             enabled: "{= ${ui>/editable} === true}"
                         })
                         isToolbar.insertContent(createButton, 1)
+
+                        const uploadButton = new sap.m.Button({
+                            text: 'Upload',
+                            press: (e) => {
+                                this.navigateTo(
+                                    'ZPMCustGUI',
+                                    'ZPME010',
+                                    {
+                                        'sap-ushell-navmode': 'explace'
+                                    })
+                            },
+                            enabled: "{= ${ui>/editable} === true}"
+                        })
+                        isToolbar.insertContent(uploadButton, 1)
                     }
 
                 },
