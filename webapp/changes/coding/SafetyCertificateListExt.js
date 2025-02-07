@@ -57,6 +57,72 @@ sap.ui.define(
                 })
             },
 
+            applyCustomParameter: function () {
+                const hash = window.location.hash
+                const indexQ = hash.indexOf('?')
+                const query = hash.substring(indexQ + 1)
+                const querySplit = query.split('&')
+                let periodValue = undefined
+
+                for (let i = 0; i < querySplit.length; i++) {
+                    const queryElement = querySplit[i];
+                    const nameVal = queryElement.split('=')
+                    if (nameVal.length == 2) {
+                        if (nameVal[0] == 'Period') {
+                            periodValue = nameVal[1]
+                            break
+                        }
+                    }
+                }
+
+                if (!periodValue) {
+                    return
+                }
+
+                const periodSplit = periodValue.split('-')
+                if (periodSplit.length != 2) {
+                    return
+                }
+
+                if (periodSplit[0].length != 8 || periodSplit[1].length != 8) {
+                    return
+                }
+
+                const dateFrom = periodSplit[0]
+                const dateTo = periodSplit[1]
+
+                const filterBar = sap.ui.getCore().byId(this.sAppId + "--listReportFilter")
+
+                filterBar.attachFilterChange(function (e) {
+                    const filterData = filterBar.getFilterData()
+
+                    if (!filterData) {
+                        return
+                    }
+
+                    if (filterData['SftyCertValidFrmDate']) {
+                        return
+                    }
+
+                    const strToDate = function (strDate) {
+                        const y = parseInt(strDate.substring(0, 4))
+                        const m = parseInt(strDate.substring(4, 6)) - 1
+                        const d = parseInt(strDate.substring(6, 8))
+                        return new Date(y, m, d)
+                    }
+
+                    filterData['SftyCertValidFrmDate'] = {
+                        low: strToDate(dateFrom),
+                        high: strToDate(dateTo)
+                    }
+
+                    filterBar.setFilterData(filterData, true)
+                }.bind(this))
+
+
+            },
+
+
             override: {
                 /**
                  * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -73,6 +139,9 @@ sap.ui.define(
                         }
                     })
                     wpToolbar.insertContent(uploadButton, 1)
+
+                    // apply custom parameter
+                    this.applyCustomParameter()
 
                 },
                 /**
